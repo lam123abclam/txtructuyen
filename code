@@ -1,0 +1,260 @@
+#include <bits/stdc++.h>
+#include <io.h>
+#include <conio.h>
+#include <fcntl.h>
+#include <string>
+#include <chrono>
+#include <thread>
+#include <atomic>
+//#define endl "\n"
+#define cout wcout
+#define cin wcin
+long long t = 0;
+int n;
+using namespace std;
+atomic<bool> stopInput(false);
+vector<wstring> chuoi = {
+        L"Bỏ đi, đừng chơi nữa",
+        L"Thôi, bỏ mẹ rồi, tiền mất rồi",
+        L"Gắng tí nữa đi, thần bạc bịp sắp đổi đời",
+        L"Ngu",
+        L"Chọn sai rồi e ơi",
+        L"Nghỉ đi, chơi đủ rồi",
+        L"Bỏ mẹ",
+        L"Bạc bịp đấy",
+        L"Cờ bạc đừng dính vào dù chỉ 1 lần các ae ạ"
+    };
+void delay(int milliseconds) {
+    this_thread::sleep_for(chrono::milliseconds(milliseconds));
+}
+void ngayxs()
+{
+    chrono::system_clock::time_point now = chrono::system_clock::now();
+    time_t now_time = chrono::system_clock::to_time_t(now);
+
+    // Chuyển đổi thành thông tin cấu trúc tm
+    tm* timeinfo = localtime(&now_time);
+
+    // Kiểm tra nếu hiện tại là quá 6 giờ chiều
+    if (timeinfo->tm_hour >= 18) {
+        // Tăng ngày lên 1
+        now += chrono::hours(24);
+        now_time = chrono::system_clock::to_time_t(now);
+        timeinfo = localtime(&now_time);
+    }
+
+    // Định dạng và in ra ngày tháng
+    char buffer[80];
+    strftime(buffer, sizeof(buffer), "%d/%m/%Y", timeinfo);
+    cout <<  buffer ;
+
+
+}
+void info ()
+{
+    system("cls");
+    cout << "Facebook: https://www.facebook.com/bachcoi224" << endl;
+    cout << "Zalo: 0837837636" << endl;
+    cout << L"Group hỗ trợ: https://zalo.me/g/venhhm873" << endl;
+    cout << L"Phát triển bởi bakoinef";
+
+
+}
+void taix()
+{
+    srand(static_cast<unsigned int>(time(nullptr)));
+    system("cls");
+    cout << L"Số tiền còn lại: " << t << L"vnđ" << endl;
+    long long cuoc = 0;
+    //thread inputThread(inputThread);
+    cout << "+-------------------------+" << endl;
+    cout <<L"|     Tài xỉu online      |" << endl;
+    cout << "+-------------------------+" << endl;
+    cout << L"-Cờ bạc, người không chơi là người không bao giờ thắng, người không thắng là người không biết chơi-\n";
+    cout << "  ________________________________________________________" << endl;
+    cout << " /                                                        \\" << endl;
+    cout << "|    _______    _                       __   ___           \\" << endl;
+    cout << "|   |__   __|  (_)                      \\ \\ /  /           |" << endl;
+    cout << "|      | | __ _ _         o   o          \\ V / _ _   _     |" << endl;
+    cout << "|      | |/ _` | |      o    1  o         > < | | | | |    |" << endl;
+    cout << "|      | | (_| | |      o  6  3 o        / . \\| | |_| |    |" << endl;
+    cout << "|      |_|\\__,_|_|        o   o         /_/ \\_\\_|\\__,_|    |" << endl;
+    cout << " \\                                                        /" << endl;
+    cout << "  \\                                                      /" << endl;
+    cout << "   \\____________________________________________________/" << endl;
+    wstring dat ;
+    cout << L"\nBạn muốn đặt tài hay đặt xỉu, bấm [T] để đặt tài, [X] để đặt xỉu, [C] để huỷ kèo: ";
+    cin >> dat;
+    int loai;
+    if (dat == L"T" || dat == L"t")
+    {
+        loai = 0;
+    }
+    if (dat == L"X" || dat == L"x")
+    {
+        loai = 1;
+    }
+
+    cout << L"Bạn muốn đặt cược bao nhiêu? :";
+    cin >> cuoc;
+    if (cuoc > t)
+    {
+        cout << L"Không đủ tiền, thoát game sau 1s";
+        delay(1000);
+        return;
+    }
+    t -= cuoc;
+        for (int i = 4; i >= 0; i--)
+        {
+            cout << "+-------------------------+" << endl;
+            cout <<L"|     Tài xỉu online      |" << endl;
+            cout << "+-------------------------+" << endl;
+            if (loai == 1) cout << L"Bạn đã đặt XỈU\n";
+            else cout << L"Bạn đã đặt TÀI\n";
+            cout << L"Vui lòng chờ....\n";
+            cout << "  ________________________________________________________" << endl;
+            cout << " /                                                        \\" << endl;
+            cout << "|    _______    _                       __   ___           \\" << endl;
+            cout << "|   |__   __|  (_)                      \\ \\ /  /           |" << endl;
+            cout << "|      | | __ _ _         o   o          \\ V / _ _   _     |" << endl;
+            cout << "|      | |/ _` | |      o       o         > < | | | | |    |" << endl;
+            cout << "|      | | (_| | |      o   "<< i << "   o        / . \\| | |_| |    |" << endl;
+            cout << "|      |_|\\__,_|_|        o   o         /_/ \\_\\_|\\__,_|    |" << endl;
+            cout << " \\                                                        /" << endl;
+            cout << "  \\                                                      /" << endl;
+            cout << "   \\____________________________________________________/" << endl;
+            delay (900);
+            system ("cls");
+
+        }
+            cout << L"Trả tiền cân cửa, bắt đầu mở bát\n";
+            delay (900);
+            system ("cls");
+            int s1 = rand() % 6 + 1, s2 = rand() % 6 + 1, s3 = rand() % 6 + 1;
+
+            cout << "+-------------------------+" << endl;
+            cout <<L"|     Tài xỉu online      |" << endl;
+            cout << "+-------------------------+" << endl;
+            cout << "  ________________________________________________________" << endl;
+            cout << " /                                                        \\" << endl;
+            cout << "|    _______    _                       __   ___           \\" << endl;
+            cout << "|   |__   __|  (_)                      \\ \\ /  /           |" << endl;
+            cout << "|      | | __ _ _         o   o          \\ V / _ _   _     |" << endl;
+            cout << "|      | |/ _` | |      o   "<<s1<<"   o         > < | | | | |    |" << endl;
+            cout << "|      | | (_| | |      o  "<<s2<< " "<<s3<<"  o        / . \\| | |_| |    |" << endl;
+            cout << "|      |_|\\__,_|_|        o   o         /_/ \\_\\_|\\__,_|    |" << endl;
+            cout << " \\                                                        /" << endl;
+            cout << "  \\                                                      /" << endl;
+            cout << "   \\____________________________________________________/" << endl;
+            int tong = s1 + s2 + s3;
+            cout << endl;
+            if (tong > 10)
+            {
+                if(loai == 0)
+                {
+                    cout << L"Chúc mừng bạn đã thắng\n";
+                    cout << L"\t+" << cuoc*2 << L"vnđ\n";
+                    t += 2*cuoc;
+                    cout << L"Tổng tiền còn lại:"  << t << L"vnđ\n";
+                }
+                else
+                {
+                    cout << chuoi[rand()%chuoi.size()] << endl;
+                    cout << L"\t-" << cuoc << L"vnđ\n";
+                    cout << L"Tổng tiền còn lại: " << t << L"vnđ\n";
+                }
+            }
+            if (tong <= 10)
+            {
+                if(loai == 1)
+                {
+                    cout << L"Chúc mừng bạn đã thắng\n";
+                    cout << L"\t+" << cuoc*2 << L"vnđ\n";
+                    t += 2*cuoc;
+                    cout << L"Tổng tiền còn lại: " << t << L"vnđ\n";
+                }
+                else
+                {
+                    cout << chuoi[rand()%chuoi.size()] << endl;
+                    cout << L"\t-" << cuoc << L"vnđ\n";
+                    cout << L"Tổng tiền còn lại: " << t << L"vnđ\n";
+                }
+            }
+            cout << L"Có muốn chơi tiếp không, [1] có [0] không";
+            int lcho;
+            cin >> lcho;
+            if (lcho == 1) taix();
+            else return;
+
+}
+void xs()
+{
+    srand(static_cast<unsigned int>(time(nullptr)));
+    cout << L"\tDự đoán kết quả XSMB ngày " ; ngayxs(); cout << endl;
+    cout << "DB          " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << endl;
+    cout << "1           " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << endl;
+    cout << "2     " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << "    " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << endl;
+    cout << "3   " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << "  " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << "  " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << endl;
+    cout << "   " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << "  " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << "  " << setw(5) << rand() % static_cast<int>(pow(10, 5)) << endl;
+    cout << "4  " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << " " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << " " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << " " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << endl;
+    cout << "5   " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << "  " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << "  " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << "  " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << endl;
+    cout << "    " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << "  " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << "  " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << "  " << setw(4) << rand() % static_cast<int>(pow(10, 4)) << endl;
+    cout << "6     " << setw(3) << rand() % static_cast<int>(pow(10, 3)) << "   " << setw(3) << rand() % static_cast<int>(pow(10, 3)) << "   " << setw(3) << rand() % static_cast<int>(pow(10, 3)) << endl;
+    cout << "7    " << rand() % 100 << "  " << rand() % 100 << "  " << rand() % 100 << "  " << rand() % 100 << endl;
+}
+void cl()
+{
+    cout << L"Chịu";
+}
+void welc()
+{
+    system("cls");
+    cout << "+--------------------------------------+" << endl;
+    cout <<L"|      Dịch vụ giải trí trực tuyến     |" << endl;
+    cout << "+--------------------------------------+" << " v1.0" << endl;
+    cout << endl << L"Menu :" << endl;
+    cout << L"\t 1. Tài xỉu \n \t 2. Dự đoán XSMB \n \t 3. Chẵn lẻ \n \t 4. Thông tin liên hệ \n \t 5. Thoát" ;
+    cout << L"\nNhập lựa chọn: ";
+    //int n;
+    cin >> n;
+    if (n == 1)
+    {
+        taix();
+    }
+    if (n == 2)
+    {
+        xs();
+    }
+    if (n == 3)
+    {
+        cl();
+    }
+    if (n == 4)
+    {
+        info();
+    }
+    if (n == 5)
+    {
+        return;
+    }
+    else return;
+
+}
+int main ()
+{
+    //he0ll wodrl
+     _setmode(_fileno(stdout), _O_U16TEXT);
+     _setmode(_fileno(stdin), _O_U16TEXT);
+     system("cls");
+    cout << L"Mang đi mấy tiền?: ";
+    long long k ;
+    cin >> k;
+    t += k;
+    cout << L"Đang cộng tiền.... \n";
+    delay(800);
+    system ("cls");
+    cout << L"Nạp tiền thành công, bắt đầu sau 2s";
+    delay(2000);
+    welc();
+    return 0;
+}
